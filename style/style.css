@@ -11,6 +11,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
@@ -19,22 +20,97 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(to bottom right, blue, white);
+  background-image: linear-gradient(to bottom right, #00ffff, #703fff);
+}
+.wrapper h2 {
+  font-weight: bolder;
+  font-size: 48px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
 }
 
-.list-container {
+.container {
+  min-width: -moz-max-content;
+  min-width: max-content;
   background-color: white;
-  padding: 200px;
   border-radius: 20px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
 }
-.list-container ul {
+.container .input-group {
+  width: 95%;
+  margin-top: 16px;
+  border-radius: 20px;
+  background-color: rgb(223, 221, 221);
+}
+.container .input-group .form-control {
+  background-color: rgb(223, 221, 221);
+  border: none;
+  border-radius: 20px;
+  padding-right: 0;
+  z-index: 1;
+}
+.container .input-group .form-control:focus {
+  box-shadow: none;
+}
+.container .input-group #button-addon2 {
+  border: none;
+  border-radius: 20px;
+  background-color: #703fff;
+  color: white;
+}
+.container .input-group #button-addon2:hover {
+  background-color: #004bad;
+}
+.container #task-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   list-style: none;
-  text-decoration: none;
-  padding-left: 0;
-  font-size: 28px;
-  font-family: Arial, Helvetica, sans-serif;
+  gap: 15px;
 }
-.list-container ul li {
-  text-decoration: none;
+.container #task-container li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.container #task-container li:active {
+  text-decoration: line-through;
+  color: grey;
+}
+.container #task-container li::before {
+  content: "";
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  border: 2px solid rgb(134, 134, 134);
+}
+.container #task-container li:active::before {
+  background-color: #855dff;
+}
+.container #task-container li #edit-btn {
+  position: absolute;
+  right: 128px;
+  color: #703fff;
+}
+.container #task-container li #arrow-up-btn {
+  position: absolute;
+  right: 96px;
+  color: #703fff;
+}
+.container #task-container li #arrow-down-btn {
+  position: absolute;
+  right: 64px;
+  color: #703fff;
+}
+.container #task-container li #delete-btn {
+  position: absolute;
+  right: 32px;
+  color: #703fff;
 }/*# sourceMappingURL=style.css.map */

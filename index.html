@@ -5,16 +5,62 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo or not todo?</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
   </head>
   <body>
     <div class="wrapper">
-      <div class="list-container">
-        <ul>
-          <li>Text 1</li>
-          <li>Text 1</li>
-          <li>Text 1</li>
-          <li>Text 1</li>
-          <li>Text 1</li>
+      <h2>TODO</h2>
+      <div class="container">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="What do you want to do?"
+            aria-label="What do you want to do?"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            Add task
+          </button>
+        </div>
+        <ul id="task-container">
+          <li>
+            Task 1<i class="bi bi-pencil-square" id="edit-btn"></i
+            ><i class="bi bi-chevron-up" id="arrow-up-btn"></i>
+            <i class="bi bi-chevron-down" id="arrow-down-btn"></i
+            ><i class="bi bi-x" id="delete-btn"></i>
+          </li>
+          <li>
+            Task 1<i class="bi bi-pencil-square" id="edit-btn"></i
+            ><i class="bi bi-chevron-up" id="arrow-up-btn"></i>
+            <i class="bi bi-chevron-down" id="arrow-down-btn"></i
+            ><i class="bi bi-x" id="delete-btn"></i>
+          </li>
+          <li>
+            Task 1<i class="bi bi-pencil-square" id="edit-btn"></i
+            ><i class="bi bi-chevron-up" id="arrow-up-btn"></i>
+            <i class="bi bi-chevron-down" id="arrow-down-btn"></i
+            ><i class="bi bi-x" id="delete-btn"></i>
+          </li>
+          <li>
+            Task 1<i class="bi bi-pencil-square" id="edit-btn"></i
+            ><i class="bi bi-chevron-up" id="arrow-up-btn"></i>
+            <i class="bi bi-chevron-down" id="arrow-down-btn"></i
+            ><i class="bi bi-x" id="delete-btn"></i>
+          </li>
         </ul>
       </div>
     </div>
