@@ -94,4 +94,23 @@ body {
   position: absolute;
   right: 32px;
   color: #703fff;
+}
+
+.bi-check-circle-fill {
+  color: #703fff;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.display-none {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */

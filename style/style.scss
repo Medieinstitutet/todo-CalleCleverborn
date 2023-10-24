@@ -99,3 +99,22 @@ body {
         }
     }
 }
+
+.bi-check-circle-fill {
+    color: #703fff;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.display-none {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        width: 90%;
+    }
+}
