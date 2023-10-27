@@ -1,19 +1,20 @@
+$purplemaincolor: #703fff;
+$backgroundcolorlight: white;
+$inputfieldcolor: rgb(223, 221, 221);
 *,
 *::after,
 *::before {
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, #00ffff, $purplemaincolor);
 }
-
 .wrapper {
     display: flex;
     justify-content: center;
@@ -21,33 +22,31 @@ body {
     padding-top: 50px;
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(to bottom right, #00ffff, #703fff);
 }
-
 .app-container {
     width: 50%;
     height: min-content;
-    background-color: white;
+    background-color: $backgroundcolorlight;
     border-radius: 20px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 100px 9px rgba(111, 63, 255, 0.34);
+    -moz-box-shadow: 0px 0px 100px 9px rgba(111, 63, 255, 0.34);
+    box-shadow: 0px 0px 100px 9px rgba(111, 63, 255, 0.34);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: relative;
-
     .input-group {
         width: 95%;
         margin-top: 16px;
         border-radius: 20px;
-        background-color: rgb(223, 221, 221);
+        background-color: $inputfieldcolor;
         .form-control {
-            background-color: rgb(223, 221, 221);
+            background-color: $inputfieldcolor;
             border: none;
             border-radius: 20px;
             padding-right: 0;
             z-index: 1;
-
             &:focus {
                 box-shadow: none;
             }
@@ -55,66 +54,63 @@ body {
         #button-addon2 {
             border: none;
             border-radius: 20px;
-            background-color: #703fff;
-            color: white;
-
+            background-color: $purplemaincolor;
+            color: $backgroundcolorlight;
             &:hover {
                 background-color: rgb(46, 84, 187);
             }
         }
     }
-
     #task-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         list-style: none;
         gap: 15px;
+        padding-right: 32px;
         li {
             display: flex;
             align-items: center;
             gap: 10px;
             cursor: pointer;
+            padding-bottom: 5px;
+            border-bottom: solid 1px $inputfieldcolor;
 
+            .bi-check-circle-fill {
+                color: $purplemaincolor;
+            }
+            .completed {
+                text-decoration: line-through;
+                color: #888;
+            }
+            .display-none {
+                display: none;
+            }
             .edit-btn {
                 position: absolute;
                 right: 128px;
-                color: #703fff;
+                color: $purplemaincolor;
             }
             .arrow-up-btn {
                 position: absolute;
                 right: 96px;
-                color: #703fff;
+                color: $purplemaincolor;
             }
             .arrow-down-btn {
                 position: absolute;
                 right: 64px;
-                color: #703fff;
+                color: $purplemaincolor;
             }
             .delete-btn {
                 position: absolute;
                 right: 32px;
-                color: #703fff;
+                color: $purplemaincolor;
             }
         }
     }
 }
-
-.bi-check-circle-fill {
-    color: #703fff;
-}
-
-.completed {
-    text-decoration: line-through;
-    color: #888;
-}
-
-.display-none {
-    display: none;
-}
-
 @media (max-width: 768px) {
     .app-container {
-        width: 90%;
+        width: 95%;
     }
 }
