@@ -1,12 +1,13 @@
-
+import { deleteTask} from "./modules/deleteTask";
+import { editTask } from "./modules/editTask";
+import { toggleTaskCompleted } from "./modules/toggleTask";
 import "/style/style.css";
 
 const addTask = document.querySelector("#button-addon2");
 const taskTextInput = document.querySelector(".form-control");
 const listContainer = document.querySelector("#task-container");
-
-
 const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+
 renderTasksFromLocalStorage();
 
 function renderTasksFromLocalStorage() {
@@ -23,7 +24,7 @@ taskTextInput.addEventListener("keydown", function (event) {
 });
 
 function createTask() {
-    
+
     const taskText = taskTextInput.value.trim(); 
 
     if (taskText !== "") {
@@ -63,11 +64,11 @@ function renderTask(task) {
     const arrowUpBtn = taskItem.querySelector(".arrow-up-btn");
     
     span.addEventListener("click", () => {
-        toggleTaskCompleted(task, taskItem);
+        toggleTaskCompleted(task, taskItem, tasks);
     });
 
     circleIcon.addEventListener("click", () => {
-        toggleTaskCompleted(task, taskItem);
+        toggleTaskCompleted(task, taskItem, tasks);
     });
 
     checkCircle.addEventListener("click", () => {
@@ -75,58 +76,24 @@ function renderTask(task) {
     });
 
     deleteBtn.addEventListener("click", () => {
-        deleteTask(task);
+        deleteTask(task, tasks);
         listContainer.removeChild(taskItem);
     });
 
     editBtn.addEventListener("click", () => {
-        editTask(task, taskItem);
+        editTask(task, taskItem, tasks);
     });
 
     arrowUpBtn.addEventListener("click", () => {
-        moveTaskUp(task);
+        moveTaskUp(task, tasks);
     });
     
     arrowDownBtn.addEventListener("click", () => {
-        moveTaskDown(task);
+        moveTaskDown(task, tasks);
     });
 }
-function toggleTaskCompleted(task, taskItem) {
-   
-    task.isCompleted = !task.isCompleted;
 
-    const circleIcon = taskItem.querySelector(".bi-circle");
-    const checkCircle = taskItem.querySelector(".bi-check-circle-fill");
-    const span = taskItem.querySelector("span");
-
-    circleIcon.classList.toggle("display-none");
-    checkCircle.classList.toggle("display-none");
-    span.classList.toggle("completed");
-
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-function deleteTask(task) {
-    const taskIndex = tasks.findIndex((t) => t.id === task.id);
-    if (taskIndex !== -1) {
-        tasks.splice(taskIndex, 1);
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-}
-
-function editTask(task, taskItem) {
-    const newText = prompt("Edit the task:", task.text);
-    if (newText !== null && newText !== '') {
-        task.text = newText;
-        
-        const span = taskItem.querySelector("span");
-        span.textContent = newText;
-        
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-}
-
-function moveTaskUp(task) {
+function moveTaskUp(task, tasks) {
     const taskIndex = tasks.findIndex((t) => t.id === task.id);
     if (taskIndex > 0) {
     
@@ -141,7 +108,7 @@ function moveTaskUp(task) {
     }
 }
 
-function moveTaskDown(task) {
+function moveTaskDown(task, tasks) {
     const taskIndex = tasks.findIndex((t) => t.id === task.id);
     if (taskIndex < tasks.length - 1) {
     
