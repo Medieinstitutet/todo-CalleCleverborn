@@ -1,7 +1,8 @@
+import "/style/style.css";
 import { deleteTask} from "./modules/deleteTask";
 import { editTask } from "./modules/editTask";
 import { toggleTaskCompleted } from "./modules/toggleTask";
-import "/style/style.css";
+
 
 const addTask = document.querySelector("#button-addon2");
 const taskTextInput = document.querySelector(".form-control");
