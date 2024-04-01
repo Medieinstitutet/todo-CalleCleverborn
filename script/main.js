@@ -3,7 +3,6 @@ import { deleteTask} from "./modules/deleteTask";
 import { editTask } from "./modules/editTask";
 import { toggleTaskCompleted } from "./modules/toggleTask";
 
-
 const addTask = document.querySelector("#button-addon2");
 const taskTextInput = document.querySelector(".form-control");
 const listContainer = document.querySelector("#task-container");
